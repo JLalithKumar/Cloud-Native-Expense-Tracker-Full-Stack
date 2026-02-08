@@ -1,0 +1,338 @@
+* {
+  box-sizing: border-box;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+    "Helvetica Neue", sans-serif;
+}
+
+/*body {
+  margin: 0;
+  background: var(--bg-main);
+  color: var(--text-main);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+*/
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, #e0e7ff 0%, transparent 45%),
+    radial-gradient(circle at bottom right, #ccfbf1 0%, transparent 45%),
+    linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+  color: var(--text-main);
+  transition: background 0.35s ease, color 0.35s ease;
+}
+
+
+.container {
+  max-width: 1150px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/*.card {
+  background: linear-gradient(180deg, #ffffff 0%, #f9fafb 100%);
+  border-radius: 20px;
+  padding: 26px;
+  margin-bottom: 28px;
+  box-shadow:
+    0 20px 40px rgba(79, 70, 229, 0.08),
+    0 8px 16px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+}
+*/
+
+.card {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(249, 250, 251, 0.95) 100%
+  );
+  border-radius: 20px;
+  padding: 26px;
+  margin-bottom: 28px;
+  box-shadow:
+    0 20px 40px rgba(79, 70, 229, 0.08),
+    0 8px 16px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+}
+
+h1 {
+  text-align: center;
+  font-size: 42px;
+  font-weight: 900;
+  margin-bottom: 35px;
+  letter-spacing: -0.5px;
+  background: linear-gradient(90deg, #4f46e5, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h2 {
+  margin-bottom: 14px;
+}
+
+h3 {
+  color: #4f46e5;
+  margin-bottom: 12px;
+}
+
+input,
+select,
+textarea {
+  height: 48px;
+  padding: 12px 14px;
+  font-size: 14px;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+input[type="date"],
+select {
+  color: #475569;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  background: #ffffff;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.18);
+}
+
+select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.4);
+}
+
+.search-box {
+  background: linear-gradient(180deg, #f1f5ff, #ffffff);
+  border-radius: 18px;
+  padding: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  border: 1px solid #e0e7ff;
+}
+
+button {
+   border-radius: 14px;
+   padding: 12px 18px;
+   font-weight: 700;
+   cursor: pointer;
+   transition: all 0.2s ease;
+ }
+
+ form button {
+   background: linear-gradient(90deg, #4f46e5, #6366f1);
+   color: white;
+ }
+
+ form button:hover {
+   transform: translateY(-1px);
+   box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+ }
+
+ button.edit {
+   background: #22c55e;
+   color: white;
+ }
+
+ button.delete {
+   background: #ef4444;
+   color: white;
+ }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  background: #4f46e5;
+  color: white;
+  padding: 12px;
+}
+
+td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+tr:hover {
+  background: #f1f5f9;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 25px;
+}
+
+.pagination button {
+  background: #e0e7ff;
+}
+
+.pagination button:hover:not(:disabled) {
+  background: #c7d2fe;
+}
+
+.expense-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.form-row.full {
+  grid-template-columns: 1fr;
+}
+
+.form-row textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.recharts-bar-rectangle {
+  fill: inherit;
+}
+
+:root {
+  --bg-main: #eef2ff;
+  --bg-card: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --primary: #6366f1;
+  --border: #e5e7eb;
+}
+
+/*body.dark {
+  --bg-main: #0f172a;
+  --bg-card: #020617;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --primary: #818cf8;
+  --border: #1e293b;
+}*/
+
+body.dark {
+  background:
+    radial-gradient(circle at top left, #1e1b4b 0%, transparent 45%),
+    radial-gradient(circle at bottom right, #022c22 0%, transparent 45%),
+    linear-gradient(180deg, #020617 0%, #020617 100%);
+  color: var(--text-main);
+}
+
+body.dark table {
+  background: #0f172a;
+}
+
+body.dark th {
+  background: #4f46e5;
+  color: #ffffff;
+}
+
+body.dark td {
+  color: #e5e7eb;
+  border-bottom: 1px solid #1e293b;
+}
+
+body.dark tr {
+  background: #020617;
+}
+
+body.dark tr:nth-child(even) {
+  background: #020617;
+}
+
+body.dark tr:hover {
+  background: #020617;
+}
+
+body.dark input,
+body.dark select,
+body.dark textarea {
+  background: #020617;
+  color: #e5e7eb;
+  border: 1px solid #1e293b;
+}
+
+body.dark input::placeholder {
+  color: #94a3b8;
+}
+
+body.dark select {
+  color: #e5e7eb;
+}
+
+body.dark button {
+  color: #020617;
+}
+
+body.dark button:not(.edit):not(.delete) {
+  background: #f8fafc;
+}
+
+body.dark button:hover {
+  opacity: 0.9;
+}
+
+.datepicker {
+  width: 100%;
+  height: 48px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--bg-input);
+  color: var(--text-primary);
+}
+
+.dark .react-datepicker {
+  background-color: #020617;
+  border-color: #1e293b;
+  color: #e5e7eb;
+}
+
+.dark .react-datepicker__day--selected {
+  background-color: #6366f1;
+}
+
+body.dark .card {
+  background: linear-gradient(
+    180deg,
+    rgba(2, 6, 23, 0.95) 0%,
+    rgba(2, 6, 23, 0.9) 100%
+  );
+  border: 1px solid #1e293b;
+}
+
+.container {
+  animation: fadeIn 0.4s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
