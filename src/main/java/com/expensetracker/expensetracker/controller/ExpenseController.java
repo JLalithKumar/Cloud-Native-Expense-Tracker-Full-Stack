@@ -5,11 +5,11 @@ import com.expensetracker.expensetracker.dto.ExpenseResponseDTO;
 import com.expensetracker.expensetracker.service.ExpenseService;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/expenses")
-@CrossOrigin(origins = "*")
 public class ExpenseController {
 
     private final ExpenseService expenseService;
@@ -20,10 +20,27 @@ public class ExpenseController {
 
     // ✅ ADD EXPENSE
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public ExpenseResponseDTO addExpense(
             @Valid @RequestBody ExpenseRequestDTO dto
     ) {
         return expenseService.addExpense(dto);
+    }
+
+    // ✅ UPDATE EXPENSE
+    @PutMapping("/{id}")
+    public ExpenseResponseDTO updateExpense(
+            @PathVariable Long id,
+            @Valid @RequestBody ExpenseRequestDTO dto
+    ) {
+        return expenseService.updateExpense(id, dto);
+    }
+
+    // ✅ DELETE EXPENSE
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteExpense(@PathVariable Long id) {
+        expenseService.deleteExpense(id);
     }
 
     // ✅ PAGED EXPENSES (FIXES TABLE NOT SHOWING)

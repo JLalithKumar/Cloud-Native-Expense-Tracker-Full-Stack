@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { CATEGORY_OPTIONS } from "../constants/categories";
+import { addExpense, updateExpense } from "../api/expenseApi";
 
 const ExpenseForm = ({ onExpenseAdded, selectedExpense, clearSelection }) => {
   const [type, setType] = useState("EXPENSE");
@@ -50,33 +51,21 @@ const ExpenseForm = ({ onExpenseAdded, selectedExpense, clearSelection }) => {
       return;
     }
 
-    const url = selectedExpense
-      ? `http://localhost:8080/api/expenses/${selectedExpense.id}`
-      : "http://localhost:8080/api/expenses";
-
-    const method = selectedExpense ? "PUT" : "POST";
+    const payload = {
+      ...formData,
+      amount: Number(formData.amount),
+      type,
+      // ✅ FIX: send LOCAL date (yyyy-MM-dd)
+      date: formData.date
+        ? formData.date.toLocaleDateString("en-CA")
+        : null,
+    };
 
     try {
-      const response = await fetch(url, {
-        method,
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...formData,
-          amount: Number(formData.amount),
-          type,
-
-          // ✅ FIX: send LOCAL date (yyyy-MM-dd)
-          date: formData.date
-            ? formData.date.toLocaleDateString("en-CA")
-            : null,
-        }),
-      });
-
-      const data = await response.json().catch(() => ({}));
-
-      if (!response.ok) {
-        setErrors(data.messages || [data.error || "Something went wrong"]);
-        return;
+      if (selectedExpense) {
+        await updateExpense(selectedExpense.id, payload);
+      } else {
+        await addExpense(payload);
       }
 
       setFormData({
@@ -91,8 +80,9 @@ const ExpenseForm = ({ onExpenseAdded, selectedExpense, clearSelection }) => {
       setType("EXPENSE");
       clearSelection();
       onExpenseAdded();
-    } catch {
-      setErrors(["Server error"]);
+    } catch (err) {
+      const data = err.response?.data;
+      setErrors(data?.messages || [data?.error || data?.message || "Something went wrong"]);
     }
   };
 

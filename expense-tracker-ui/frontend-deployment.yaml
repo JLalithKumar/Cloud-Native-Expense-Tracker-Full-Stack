@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: expense-tracker-ui-deployment
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: expense-tracker-ui
+
+  template:
+    metadata:
+      labels:
+        app: expense-tracker-ui
+
+    spec:
+      containers:
+      - name: expense-tracker-ui
+
+        image: lalithkumarj/expense-tracker-ui:v1
+
+        imagePullPolicy: Always
+
+        ports:
+        - containerPort: 80

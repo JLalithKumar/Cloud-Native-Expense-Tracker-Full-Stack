@@ -1,5 +1,6 @@
 package com.expensetracker.expensetracker.model;
 
+import com.expensetracker.expensetracker.auth.model.User;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.*;
@@ -38,5 +39,9 @@ public class Expense {
     private String paymentMode;
 
     private String notes;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 
 }

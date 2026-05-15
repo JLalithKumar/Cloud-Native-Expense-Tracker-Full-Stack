@@ -336,3 +336,71 @@ body.dark .card {
     transform: translateY(0);
   }
 }
+
+body.dark {
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+}
+
+ body.dark h1,
+ body.dark h2,
+ body.dark h3,
+ body.dark h4,
+ body.dark label,
+ body.dark p,
+ body.dark span {
+   color: #f8fafc;
+ }
+
+body.dark h1 {
+  background: none;
+  -webkit-text-fill-color: unset;
+  color: #e0e7ff;
+}
+
+body.dark label {
+  color: #e5e7eb;
+  font-weight: 500;
+}
+
+body.dark input:focus,
+body.dark select:focus,
+body.dark textarea:focus {
+  border-color: #818cf8;
+  box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.35);
+}
+
+body.dark .recharts-text,
+body.dark .recharts-cartesian-axis-tick-value,
+body.dark .recharts-legend-item-text {
+  fill: #e5e7eb !important;
+}
+
+body.dark .recharts-tooltip-wrapper {
+  color: #020617;
+}
+body.dark .summary-card h2,
+body.dark .summary-card h4 {
+  color: #ffffff;
+}
+body.dark .muted,
+body.dark .empty {
+  color: #94a3b8;
+}
+body.dark .search-box {
+  background: linear-gradient(180deg, #020617, #020617);
+  border: 1px solid #1e293b;
+}
+
+body.dark .recharts-default-tooltip {
+  background-color: #f8fafc !important;
+  border: 1px solid #e5e7eb !important;
+}
+
+body.dark .recharts-tooltip-label {
+  color: #020617;
+  font-weight: 700;
+}
+body.dark .dashboard h2 {
+  color: #f8fafc;
+}

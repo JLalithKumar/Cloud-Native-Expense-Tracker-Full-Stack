@@ -1,15 +1,15 @@
-import axios from "axios";
+import API from "../api/axiosInstance";
 
-const BASE_URL = "http://localhost:8080/api/analytics";
+const BASE_URL = "/api/analytics";
 
 export const getSummary = () =>
-  axios.get(`${BASE_URL}/summary`);
+  API.get(`${BASE_URL}/summary`);
 
 export const getCategoryWise = () =>
-  axios.get(`${BASE_URL}/category`);
+  API.get(`${BASE_URL}/category`);
 
 export const getMonthlyExpense = (year) =>
-  axios.get(`${BASE_URL}/monthly/${year}`);
+  API.get(`${BASE_URL}/monthly/${year}`);
 
 export const getMonthlyIncomeExpense = (year) =>
-  axios.get(`${BASE_URL}/monthly/stacked/${year}`);
+  API.get(`${BASE_URL}/monthly/stacked/${year}`);
