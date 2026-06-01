@@ -3,8 +3,11 @@ import axios from "axios";
 //const API = axios.create({
 //  baseURL: "http://localhost:8081",
 //});
+// const API = axios.create({
+//   baseURL: "http://a02501fc06e4a4782a22fc3024f35f5e-523494114.us-east-1.elb.amazonaws.com:8081",
+// });
 const API = axios.create({
-  baseURL: "http://a02501fc06e4a4782a22fc3024f35f5e-523494114.us-east-1.elb.amazonaws.com:8081",
+  baseURL: "http://ac04015e67ffc446fb096f094e79d5ed-203504087.us-east-1.elb.amazonaws.com:8081",
 });
 
 // ✅ Attach JWT token to every request
