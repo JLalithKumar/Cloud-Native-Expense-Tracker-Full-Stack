@@ -7,12 +7,6 @@ environment {
 
 stages {
 
-    stage('Clone Repository') {
-        steps {
-            git 'https://github.com/JLalithKumar/Expense-Tracker-Full-Stack.git'
-        }
-    }
-
     stage('Build Backend') {
         steps {
             bat 'mvn clean package'
