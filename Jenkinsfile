@@ -49,6 +49,13 @@ stages {
         }
     }
 
+    stage('Deploy MySQL to Kubernetes') {
+       steps {
+bat 'kubectl apply -f mysql-deployment.yaml'
+bat 'kubectl apply -f mysql-service.yaml'
+}
+}
+
     stage('Deploy Backend to Kubernetes') {
         steps {
             bat 'kubectl apply -f deployment.yaml'
