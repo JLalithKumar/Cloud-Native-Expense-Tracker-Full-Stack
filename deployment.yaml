@@ -28,11 +28,5 @@ spec:
         - containerPort: 8081
 
         env:
-        - name: SPRING_DATASOURCE_URL
-          value: jdbc:mysql://mysql:3306/expensetracker
-
-        - name: SPRING_DATASOURCE_USERNAME
-          value: root
-
-        - name: SPRING_DATASOURCE_PASSWORD
-          value: root
+        - name: DB_HOST
+          value: mysql
