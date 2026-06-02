@@ -18,28 +18,28 @@ stages {
 
     stage('Build Backend Docker Image') {
         steps {
-            bat 'docker build -t lalithkumarj/expense-tracker:v8 .'
+            bat 'docker build -t lalithkumarj/expense-tracker:v9 .'
         }
     }
 
     stage('Push Backend Docker Image') {
         steps {
             bat 'docker login -u %DOCKERHUB_CREDENTIALS_USR% -p %DOCKERHUB_CREDENTIALS_PSW%'
-            bat 'docker push lalithkumarj/expense-tracker:v8'
+            bat 'docker push lalithkumarj/expense-tracker:v9'
         }
     }
 
     stage('Build Frontend Docker Image') {
         steps {
             dir('expense-tracker-ui') {
-                bat 'docker build -t lalithkumarj/expense-tracker-ui:v10 .'
+                bat 'docker build -t lalithkumarj/expense-tracker-ui:v11 .'
             }
         }
     }
 
     stage('Push Frontend Docker Image') {
         steps {
-            bat 'docker push lalithkumarj/expense-tracker-ui:v10'
+            bat 'docker push lalithkumarj/expense-tracker-ui:v11'
         }
     }
 
