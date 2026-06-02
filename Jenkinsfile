@@ -1,6 +1,7 @@
 pipeline {
 agent any
 
+```
 environment {
     DOCKERHUB_CREDENTIALS = credentials('dockerhub-creds')
 }
@@ -40,6 +41,12 @@ stages {
         }
     }
 
+    stage('Configure Kubernetes') {
+        steps {
+            bat 'aws eks update-kubeconfig --region us-east-1 --name expense-tracker-cluster'
+        }
+    }
+
     stage('Deploy Backend to Kubernetes') {
         steps {
             bat 'kubectl apply -f deployment.yaml'
@@ -49,10 +56,13 @@ stages {
 
     stage('Deploy Frontend to Kubernetes') {
         steps {
-            bat 'kubectl apply -f expense-tracker-ui/frontend-deployment.yaml'
-            bat 'kubectl apply -f expense-tracker-ui/frontend-service.yaml'
+            dir('expense-tracker-ui') {
+                bat 'kubectl apply -f frontend-deployment.yaml'
+                bat 'kubectl apply -f frontend-service.yaml'
+            }
         }
     }
 }
+```
 
 }
