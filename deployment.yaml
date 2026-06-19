@@ -5,7 +5,7 @@ metadata:
   name: expense-tracker-deployment
 
 spec:
-  replicas: 2
+  replicas: 1
 
   selector:
     matchLabels:
@@ -20,7 +20,7 @@ spec:
       containers:
       - name: expense-tracker
 
-        image: lalithkumarj/expense-tracker:v15
+        image: lalithkumarj/expense-tracker:v18
 
         imagePullPolicy: Always
 
