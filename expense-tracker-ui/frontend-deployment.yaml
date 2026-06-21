@@ -20,7 +20,7 @@ spec:
       containers:
       - name: expense-tracker-ui
 
-        image: lalithkumarj/expense-tracker-ui:v18
+        image: lalithkumarj/expense-tracker-ui:v20
 
         imagePullPolicy: Always
 
